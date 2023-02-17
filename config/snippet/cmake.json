@@ -1,0 +1,82 @@
+{
+	"CMake new library": {
+		"prefix": "cmake-library",
+		"body": [
+			"add_library(${1:\\${CMAKE_PROJECT_NAME\\}} ${2:STATIC} ${3:\\${SOURCE_FILES\\}})"
+		]
+	},
+	"CMake target include": {
+		"prefix": "cmake-tinclude",
+		"body": [
+			"target_include_directories(",
+			"\t${1:\\${CMAKE_PROJECT_NAME\\}}",
+			"\tPUBLIC $<BUILD_INTERFACE:${2:\\${CMAKE_CURRENT_SOURCE_DIR\\}/include}>",
+			"\tPRIVATE $<BUILD_INTERFACE:${3:\\${CMAKE_CURRENT_SOURCE_DIR\\}/src}>",
+			")"
+		]
+	},
+	"CMake install configure": {
+		"prefix": "cmake-install",
+		"body": [
+			"# --- BEGIN CMAKE INSTALL/EXPORT ---",
+			"include(GNUInstallDirs)",
+			"set(PROJECT_EXPORT_TARGETS ${1:\\${PROJECT_NAME\\}})",
+			"set(PROJECT_EXPORT_NAME ${2:\\${PROJECT_NAME\\}})",
+			"set(PROJECT_INSTALL_CMAKEDIR ${3:\\${CMAKE_INSTALL_LIBDIR\\}/cmake/\\${PROJECT_EXPORT_NAME\\}})",
+			"",
+			"# create aliases for targets",
+			"foreach(target \\${PROJECT_EXPORT_TARGETS\\})",
+			"\tadd_library(\\${PROJECT_EXPORT_NAME\\}::\\${target\\} ALIAS \\${target\\})",
+			"endforeach()",
+			"",
+			"# install targets",
+			"install(",
+			"\tTARGETS \\${PROJECT_EXPORT_TARGETS\\}",
+			"\tEXPORT \\${PROJECT_EXPORT_NAME\\}Targets",
+			"\tARCHIVE DESTINATION \\${CMAKE_INSTALL_LIBDIR\\}",
+			"\tLIBRARY DESTINATION \\${CMAKE_INSTALL_LIBDIR\\}",
+			"\tRUNTIME DESTINATION \\${CMAKE_INSTALL_BINDIR\\}",
+			"\tPUBLIC_HEADER DESTINATION \\${CMAKE_INSTALL_INCLUDEDIR\\}",
+			"\tINCLUDES DESTINATION \\${CMAKE_INSTALL_INCLUDEDIR\\}",
+			")",
+			"",
+			"# install project headers",
+			"install(",
+			"\tDIRECTORY \\${CMAKE_CURRENT_SOURCE_DIR\\}/include/",
+			"\tDESTINATION \\${CMAKE_INSTALL_INCLUDEDIR\\}",
+			")",
+			"",
+			"# install CMake xxxTargets.cmake",
+			"export(",
+			"\tEXPORT \\${PROJECT_EXPORT_NAME\\}Targets",
+			"\tNAMESPACE \\${PROJECT_EXPORT_NAME\\}::",
+			"\tFILE \\${PROJECT_EXPORT_NAME\\}Targets.cmake",
+			")",
+			"install(",
+			"\tFILES \\${CMAKE_CURRENT_BINARY_DIR\\}/\\${PROJECT_EXPORT_NAME\\}Targets.cmake",
+			"\tDESTINATION \\${PROJECT_INSTALL_CMAKEDIR\\}",
+			")",
+			"",
+			"# install xxxConfigVersion.cmake",
+			"include(CMakePackageConfigHelpers)",
+			"write_basic_package_version_file(",
+			"\t\\${PROJECT_EXPORT_NAME\\}ConfigVersion.cmake",
+			"\tVERSION \\${PROJECT_VERSION\\}",
+			"\tCOMPATIBILITY AnyNewerVersion",
+			")",
+			"install(",
+			"\tFILES \\${CMAKE_CURRENT_BINARY_DIR\\}/\\${PROJECT_EXPORT_NAME\\}ConfigVersion.cmake",
+			"\tDESTINATION \\${PROJECT_INSTALL_CMAKEDIR\\}",
+			")",
+			"",
+			"# install CMake xxxConfig.cmake",
+			"install(",
+			"\tEXPORT \\${PROJECT_EXPORT_NAME\\}Targets",
+			"\tFILE \\${PROJECT_EXPORT_NAME\\}Config.cmake",
+			"\tNAMESPACE \\${PROJECT_EXPORT_NAME\\}::",
+			"\tDESTINATION \\${PROJECT_INSTALL_CMAKEDIR\\}",
+			")",
+			"# --- END CMAKE INSTALL/EXPORT ---"
+		]
+	}
+}
