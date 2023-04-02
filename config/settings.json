@@ -1,0 +1,158 @@
+{
+    "extensions.ignoreRecommendations": true,
+    "extensions.autoCheckUpdates": false,
+    "extensions.closeExtensionDetailsOnViewChange": true,
+
+    "editor.multiCursorModifier": "ctrlCmd",
+    "editor.insertSpaces": true,
+    "editor.fontFamily": "Consolas, 等线, Source Code Pro for Powerline, monospace",
+    "editor.accessibilitySupport": "off",
+    "editor.inlayHints.enabled": "off",
+    "editor.comments.insertSpace": false,
+    "editor.minimap.enabled": false,
+    "editor.unicodeHighlight.ambiguousCharacters": false,
+    "editor.unicodeHighlight.invisibleCharacters": true,
+
+    "workbench.editor.untitled.hint": "hidden",
+    "workbench.iconTheme": "material-icon-theme",
+    "workbench.colorTheme": "Default Dark+",
+
+    "window.zoomLevel": -1,
+
+    "task.quickOpen.showAll": true,
+
+    "explorer.confirmDelete": false,
+    "explorer.confirmDragAndDrop": false,
+
+    "security.workspace.trust.enabled": true,
+    "security.workspace.trust.startupPrompt": "never",
+    "security.workspace.trust.untrustedFiles": "open",
+
+    "update.mode": "none",
+    "update.showReleaseNotes": false,
+
+    "files.defaultLanguage": "${activeEditorLanguage}",
+    "files.encoding": "utf8",
+    "files.enableTrash": true,
+    "files.hotExit": "onExitAndWindowClose",
+    "files.insertFinalNewline": true,
+    "files.trimFinalNewlines": true,
+    "files.trimTrailingWhitespace": true,
+
+    "terminal.integrated.profiles.windows": {
+        "nushell": {
+            "path": "nu",
+            "args": [],
+            "color": "terminal.ansiGreen",
+            "icon": "console",
+            "overrideName": true,
+        }
+    },
+    "terminal.integrated.fontFamily": "Hack Nerd Font",
+    "terminal.integrated.defaultProfile.windows": "nushell",
+    "terminal.integrated.enableMultiLinePasteWarning": false,
+
+    "diffEditor.ignoreTrimWhitespace": false,
+
+    "git.path": "git",
+    "git.autofetch": true,
+    "git.showCommitInput": true,
+    "git.useEditorAsCommitInput": false,
+    "git.confirmSync": false,
+    "git.branchPrefix": "feature-",
+
+    "[latex]": {
+        "editor.renderLineHighlight": "line",
+        "editor.wordWrap": "on"
+    },
+
+    "[plaintext]": {
+        "editor.wordWrap": "on"
+    },
+
+    //! Gruntfuggly.todo-tree
+    "todo-tree.highlights.enabled": false,
+    "todo-tree.regex.regex": "(//!?(!<)?|#|<!--|;|/\\*|^|^[ \\t]*(-|\\d+.))\\s*($TAGS)",
+
+    //! llvm-vs-code-extensions.vscode-clangd
+    "clangd.path": "clangd",
+    "clangd.onConfigChanged": "restart",
+    "clangd.restartAfterCrash": true,
+    "clangd.arguments": [
+        "--enable-config",
+        "--compile-commands-dir=build",
+        "--clang-tidy",
+        "--all-scopes-completion",
+        "--completion-style=detailed",
+        "--header-insertion=never",
+        "--background-index",
+        "--pch-storage=disk",
+        "-j=8",
+    ],
+
+    //! twxs.cmake
+    "cmake.cmakePath": "cmake",
+
+    //! ms-vscode.cmake-tools
+    "cmake.configureOnEdit": true,
+    "cmake.configureOnOpen": false,
+    "cmake.generator": "Ninja",
+    "cmake.ignoreCMakeListsMissing": true,
+    "cmake.exportCompileCommandsFile": true,
+
+    //! alefragnani.Bookmarks
+    "bookmarks.saveBookmarksInProject": true,
+    "bookmarks.wrapNavigation": true,
+
+    //! alefragnani.project-manager
+    "projectManager.sortList": "Recent",
+    "projectManager.git.baseFolders": [
+        "E:\\Storage\\FreeSpace\\workspace"
+    ],
+
+    //! redhat.java
+    "java.import.gradle.user.home": "",
+    "java.import.gradle.home": "",
+    "java.import.gradle.java.home": "",
+    "java.imports.gradle.wrapper.checksums": [
+        {
+            "sha256": "e2b82129ab64751fd40437007bd2f7f2afb3c6e41a9198e628650b22d5824a14",
+            "allowed": true
+        },
+        {
+            "sha256": "2c23278a62dc9f96ab11bee897d9f53e6479d6419135e4560ce822a6431df5e5",
+            "allowed": false
+        }
+    ],
+
+    //! ms-vscode.hexeditor
+    "hediet.vscode-drawio.resizeImages": null,
+
+    //! dtoplak.vscode-glsllint
+    "glsllint.glslangValidatorPath": "C:\\VulkanSDK\\1.3.239.0\\Bin\\glslangValidator.exe",
+
+    //! James-Yu.latex-workshop
+    "latex-workshop.latex.magic.args": [
+        "-synctex=1",
+        "-interaction=nonstopmode",
+        "-file-line-error",
+        "%DOC%",
+        "-f"
+    ],
+    "latex-workshop.latex.autoBuild.run": "never",
+    "latex-workshop.view.autoFocus.enabled": true,
+    "latex-workshop.view.pdf.viewer": "external",
+    "latex-workshop.view.pdf.external.viewer.command": "E:\\PortableApp\\SumatraPDF\\SumatraPDF.exe",
+    "latex-workshop.view.pdf.external.synctex.command": "E:\\PortableApp\\SumatraPDF\\SumatraPDF.exe",
+    "latex-workshop.view.pdf.external.synctex.args": [
+        "-forward-search",
+        "%TEX%",
+        "%LINE%",
+        "-reuse-instance",
+    ],
+
+    //! mshr-h.veriloghdl
+    "verilog.ctags.path": "E:\\DevEnvr\\usr\\local\\bin\\ctags.exe",
+    "verilog.linting.linter": "xvlog",
+    "verilog.linting.path": "E:\\Software\\Application\\Installed\\Xilinx\\Vivado\\2022.2\\bin\\unwrapped\\win64.o\\xvlog.exe",
+}
